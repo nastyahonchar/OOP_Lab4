@@ -45,7 +45,7 @@ class Program
         double bottomRightX = double.Parse(rectanglePoints[2]);
         double bottomRightY = double.Parse(rectanglePoints[3]);
 
-        Rectangle rectangle = new Rectangle(new Point(topLeftX, topLeftY), new Point(bottomRightX, bottomRightY));
+        Shape rectangle = new Rectangle(new Point(topLeftX, topLeftY), new Point(bottomRightX, bottomRightY));
 
         Console.WriteLine("Enter number of points:");
         int n = int.Parse(Console.ReadLine()!);
