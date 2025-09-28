@@ -1,5 +1,10 @@
 ﻿using System;
 
+abstract class Shape
+{
+    public abstract bool Contains(Point p);
+}
+
 class Point
 {
     public double X { get; set; }
@@ -12,20 +17,20 @@ class Point
     }
 }
 
-class Rectangle
+class Rectangle : Shape
 {
-    public Point topLeft { get; set; }
-    public Point bottomRight { get; set; }
+    public Point TopLeft { get; set; }
+    public Point BottomRight { get; set; }
 
     public Rectangle(Point topLeft, Point bottomRight)
     {
-        this.topLeft = topLeft;
-        this.bottomRight = bottomRight;
+        TopLeft = topLeft;
+        BottomRight = bottomRight;
     }
 
-    public bool Contains(Point p)
+    public override bool Contains(Point p)
     {
-        return p.X >= topLeft.X && p.X <= bottomRight.X && p.Y >= topLeft.Y && p.Y <= bottomRight.Y;
+        return p.X >= TopLeft.X && p.X <= BottomRight.X && p.Y >= TopLeft.Y && p.Y <= BottomRight.Y;
     }
 }
 
