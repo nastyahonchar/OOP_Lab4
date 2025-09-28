@@ -1,6 +1,11 @@
 ﻿using System;
 
-class PriceCalculator
+abstract class PriceCalculatorBase
+{
+    public abstract double Calculate();
+}
+
+class PriceCalculator : PriceCalculatorBase
 {
     public double PricePerDay { get; set; }
     public int NumberOfDays { get; set; }
@@ -30,7 +35,7 @@ class PriceCalculator
         Discount = discount;
     }
 
-    public double Calculate()
+    public override double Calculate()
     {
         double discountCoefficient;
 
@@ -66,7 +71,7 @@ class Program
         else
             discount = PriceCalculator.DiscountType.None;
 
-        PriceCalculator calculator = new PriceCalculator(pricePerDay, numberOfDays, season, discount);
+        PriceCalculatorBase calculator = new PriceCalculator(pricePerDay, numberOfDays, season, discount);
         Console.WriteLine($"{calculator.Calculate():F2}");
     }
 }
